@@ -5,7 +5,7 @@ import { Reveal } from "@/components/noor/Reveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-import weddingHero from "@/assets/wedding-hero-rain.png.asset.json";
+import weddingHero from "@/assets/wedding-hero-rain.png";
 import ring1 from "@/assets/ring-1.jpg";
 import ring2 from "@/assets/ring-2.jpg";
 import ring3 from "@/assets/ring-3.jpg";
