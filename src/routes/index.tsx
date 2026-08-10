@@ -906,7 +906,7 @@ function CartLine({ item }: { item: CartItem }) {
 
 /* ---------------- Hero ---------------- */
 const slides = [
-  { image: hero1.url, eyebrow: "New Maison Collection", title: "Light, set in gold.", text: "An ode to quiet brilliance. Diamonds cradled in champagne gold, made to be inherited." },
+  { { image: hero1, eyebrow: "New Maison Collection", title: "Light, set in gold.", text: "An ode to quiet brilliance. Diamonds cradled in champagne gold, made to be inherited." },
   { image: hero2, eyebrow: "Bridal 2026", title: "Worn for a lifetime.", text: "Heirloom necklaces, hand-finished in our atelier — for the moments that define us." },
   { image: hero3, eyebrow: "The Rings Edit", title: "A vow, in champagne gold.", text: "Solitaires, eternity bands and signature halos for the promises that matter most." },
 ];
