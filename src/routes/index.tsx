@@ -41,7 +41,7 @@ import { lovable } from "@/integrations/lovable/index";
 
 
 
-import hero1 from "@/assets/hero-gold-model.png.asset.json";
+import hero1 from "@/assets/hero-gold-model.png";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 import ring1 from "@/assets/ring-1.jpg";
@@ -55,11 +55,10 @@ import mangalsutra1 from "@/assets/mangalsutra-1.jpg";
 import couple1 from "@/assets/couple-1.jpg";
 import anklet1 from "@/assets/anklet-1.jpg";
 import bracelet1 from "@/assets/bracelet-1.jpg";
-import craftsmanshipAsset from "@/assets/craft-bride.png.asset.json";
-const craftsmanship = craftsmanshipAsset.url;
+import craftsmanship from "@/assets/craft-bride.png";
 import promo1 from "@/assets/promo-1.jpg";
 import promo2 from "@/assets/promo-2.jpg";
-import bestseller from "@/assets/best-seller-model.png.asset.json";
+import bestseller from "@/assets/best-seller-model.png";
 import insta1 from "@/assets/insta-1.jpg";
 import insta2 from "@/assets/insta-2.jpg";
 import insta3 from "@/assets/insta-3.jpg";
@@ -69,8 +68,7 @@ import insta6 from "@/assets/insta-6.jpg";
 import catRings from "@/assets/cat-rings-new.jpg";
 import catNecklaces from "@/assets/cat-necklaces-new.jpg";
 import catEarrings from "@/assets/cat-earrings-new.jpg";
-import catMangalsutrasAsset from "@/assets/cat-mangalsutras-v2.png.asset.json";
-const catMangalsutras = catMangalsutrasAsset.url;
+import catMangalsutras from "@/assets/cat-mangalsutras-v2.png";
 import catAnklets from "@/assets/cat-anklets-new.jpg";
 import catCouples from "@/assets/cat-couples-new.jpg";
 
