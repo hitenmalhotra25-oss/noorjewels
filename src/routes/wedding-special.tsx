@@ -68,11 +68,11 @@ function WeddingSpecial() {
       <main>
         {/* Full-screen hero — text reveals when cursor rests in the centre; frost covers whole screen */}
         <section className="relative h-[100svh] w-full overflow-hidden">
-          <img
-            src={weddingHero.url}
-            alt="Indian bride and groom in the rain — a moment of quiet devotion"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+         <img
+  src={weddingHero}
+  alt="Indian bride and groom in the rain — a moment of quiet devotion"
+  className="absolute inset-0 h-full w-full object-cover"
+/>
 
           {/* Centre hover trigger */}
           <div className="peer absolute left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2" />
