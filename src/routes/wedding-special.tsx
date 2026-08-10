@@ -14,8 +14,7 @@ import mangalsutra1 from "@/assets/mangalsutra-1.jpg";
 import necklace1 from "@/assets/necklace-1.jpg";
 import necklace2 from "@/assets/necklace-2.jpg";
 import earring1 from "@/assets/earring-1.jpg";
-import bannerCoupleAsset from "@/assets/wedding-couple-rings.png.asset.json";
-const bannerCouple = bannerCoupleAsset.url;
+import bannerCouple from "@/assets/wedding-couple-rings.png";
 import bannerMangalsutra from "@/assets/mangalsutra-panel-edited.png";
 
 
