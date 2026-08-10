@@ -1281,7 +1281,7 @@ function BestSellers() {
         <Reveal>
           <div className="relative h-full min-h-[520px] overflow-hidden rounded-3xl">
             <img
-              src={bestseller.url}
+              src={bestseller}
               alt="Best Sellers"
               loading="lazy"
               className="h-full w-full object-cover"
