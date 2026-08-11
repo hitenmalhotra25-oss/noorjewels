@@ -499,9 +499,9 @@ function SearchPanelBody({ onClose }: { onClose: () => void }) {
   const q = query.trim().toLowerCase();
   const results = q
     ? SEARCH_INDEX.filter((p) => {
-        const hay = `${p.name} ${p.category} ${p.metal} ${p.stone} ${p.carat}`.toLowerCase();
-        return q.split(/\s+/).some((w) => hay.includes(w));
-      }).slice(0, 10)
+      const hay = `${p.name} ${p.category} ${p.metal} ${p.stone} ${p.carat}`.toLowerCase();
+      return q.split(/\s+/).some((w) => hay.includes(w));
+    }).slice(0, 10)
     : [];
 
   return (
@@ -752,11 +752,10 @@ function GiftTracker({ subtotal }: { subtotal: number }) {
               style={{ left: `${left}%` }}
             >
               <div
-                className={`h-2.5 w-2.5 rounded-full border transition-colors ${
-                  isUnlocked
+                className={`h-2.5 w-2.5 rounded-full border transition-colors ${isUnlocked
                     ? "bg-champagne-deep border-champagne-deep"
                     : "bg-ivory border-champagne/60"
-                }`}
+                  }`}
               />
             </div>
           );
@@ -769,11 +768,10 @@ function GiftTracker({ subtotal }: { subtotal: number }) {
           return (
             <div
               key={t.threshold}
-              className={`rounded-lg border px-2 py-2 transition-colors ${
-                isUnlocked
+              className={`rounded-lg border px-2 py-2 transition-colors ${isUnlocked
                   ? "border-champagne-deep/60 bg-champagne/10"
                   : "border-border/60 bg-ivory/40"
-              }`}
+                }`}
             >
               <p className={`font-display font-bold text-[18px] leading-none tracking-tight ${isUnlocked ? "text-ink" : "text-ink/85"}`}>
                 {formatINR(t.threshold)}
@@ -906,9 +904,24 @@ function CartLine({ item }: { item: CartItem }) {
 
 /* ---------------- Hero ---------------- */
 const slides = [
-  { { image: hero1, eyebrow: "New Maison Collection", title: "Light, set in gold.", text: "An ode to quiet brilliance. Diamonds cradled in champagne gold, made to be inherited." },
-  { image: hero2, eyebrow: "Bridal 2026", title: "Worn for a lifetime.", text: "Heirloom necklaces, hand-finished in our atelier — for the moments that define us." },
-  { image: hero3, eyebrow: "The Rings Edit", title: "A vow, in champagne gold.", text: "Solitaires, eternity bands and signature halos for the promises that matter most." },
+  {
+    image: hero1,
+    eyebrow: "New Maison Collection",
+    title: "Light, set in gold.",
+    text: "An ode to quiet brilliance. Diamonds cradled in champagne gold, made to be inherited.",
+  },
+  {
+    image: hero2,
+    eyebrow: "Bridal 2026",
+    title: "Worn for a lifetime.",
+    text: "Heirloom necklaces, hand-finished in our atelier — for the moments that define us.",
+  },
+  {
+    image: hero3,
+    eyebrow: "The Rings Edit",
+    title: "A vow, in champagne gold.",
+    text: "Solitaires, eternity bands and signature halos for the promises that matter most.",
+  },
 ];
 
 function Hero() {
@@ -1043,9 +1056,8 @@ function FeaturedProducts() {
               <button
                 key={t}
                 onClick={() => { setTab(idx); setPage(0); }}
-                className={`pb-1.5 transition-colors ${
-                  tab === idx ? "text-ink border-b border-ink" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`pb-1.5 transition-colors ${tab === idx ? "text-ink border-b border-ink" : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {t}
               </button>
@@ -1134,11 +1146,10 @@ function TrustBadges() {
               {badges.map((b, i) => (
                 <Reveal key={b.title} delay={200 + i * 110}>
                   <div
-                    className={`group/badge relative flex flex-col items-center px-6 text-center md:px-8 ${
-                      i > 0
+                    className={`group/badge relative flex flex-col items-center px-6 text-center md:px-8 ${i > 0
                         ? "lg:before:absolute lg:before:left-0 lg:before:top-1/2 lg:before:h-20 lg:before:w-px lg:before:-translate-y-1/2 lg:before:bg-gradient-to-b lg:before:from-transparent lg:before:via-champagne/45 lg:before:to-transparent"
                         : ""
-                    }`}
+                      }`}
                   >
                     {/* minimal champagne ring badge */}
                     <div className="relative grid h-[76px] w-[76px] shrink-0 place-items-center rounded-full">
