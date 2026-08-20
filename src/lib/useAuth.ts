@@ -1,52 +1,39 @@
 import { useEffect, useState } from "react";
-import type { Session, User } from "@supabase/supabase-js";
+import type { User } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
-import { supabase } from "@/integrations/supabase/client";
+import { auth } from "@/integrations/firebase/client";
 
 export function useAuth() {
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let active = true;
-
-    supabase.auth.getSession().then(({ data }) => {
-      if (!active) return;
-      setSession(data.session ?? null);
+    const unsubscribe = onAuthStateChanged(auth, (nextUser) => {
+      setUser(nextUser);
       setLoading(false);
     });
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, next) => {
-      setSession(next ?? null);
-      setLoading(false);
-    });
-
-    return () => {
-      active = false;
-      sub.subscription.unsubscribe();
-    };
+    return unsubscribe;
   }, []);
 
-  const user: User | null = session?.user ?? null;
-
   return {
-    session,
+    session: user,
     user,
     loading,
     isAuthenticated: Boolean(user),
-    signOut: () => supabase.auth.signOut(),
+    signOut: () => signOut(auth),
   };
 }
 
 export function displayName(user: User | null) {
   if (!user) return "";
-  const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
-  const name = (meta["full_name"] ?? meta["name"]) as string | undefined;
-  return name || user.email || "Noor Member";
+
+  return user.displayName || user.email || "Noor Member";
 }
 
 export function avatarUrl(user: User | null) {
   if (!user) return undefined;
-  const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
-  return (meta["avatar_url"] ?? meta["picture"]) as string | undefined;
+
+  return user.photoURL || undefined;
 }

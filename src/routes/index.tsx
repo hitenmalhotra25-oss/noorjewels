@@ -37,7 +37,8 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { getHomeProduct, getShopProduct, type CatalogProduct } from "@/lib/catalog";
 import { useAuth, displayName, avatarUrl } from "@/lib/useAuth";
 import { useLocale, LANGUAGES, CURRENCIES, CURRENCY_CODES, type LangCode, type CurrencyCode } from "@/lib/locale";
-import { lovable } from "@/integrations/lovable/index";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/integrations/firebase/client";
 
 
 
@@ -389,19 +390,20 @@ function AccountPanelBody() {
   const [error, setError] = useState<string | null>(null);
 
   const handleGoogle = async () => {
-    setBusy(true);
-    setError(null);
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-    });
-    if (result.error) {
-      setError("We couldn't complete the sign in. Please try again.");
-      setBusy(false);
-      return;
-    }
-    if (result.redirected) return;
+  setBusy(true);
+  setError(null);
+
+  try {
+    const provider = new GoogleAuthProvider();
+
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error("Google sign-in error:", error);
+    setError("We couldn't complete the sign in. Please try again.");
+  } finally {
     setBusy(false);
-  };
+  }
+};
 
   if (loading) {
     return <p className="text-xs uppercase tracking-[0.22em] text-foreground/50">Loading…</p>;
